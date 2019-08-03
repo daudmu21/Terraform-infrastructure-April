@@ -1,7 +1,7 @@
 resource "aws_security_group" "Dev" {
   name        = "Dev"
   description = "Allow TLS inbound traffic"
-  vpc_id      = "${aws_vpc.Dev.id}"
+  vpc_id      = "${aws_vpc.dev.id}"
 
   ingress {
     from_port   = 443
