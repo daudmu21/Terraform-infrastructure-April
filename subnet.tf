@@ -3,7 +3,7 @@ resource "aws_subnet" "public" {
   cidr_block = "10.0.1.0/24"
 
   tags = {
-    Name = "${var.Name}"
+    Name = "${var.Name}.public"
     Env = "${var.Env}"
     Created_by = "${var.Created_by}"
     Dept = "${var.Dept}"
