@@ -13,3 +13,10 @@ output "pub_sec_group" {
   value = "${aws_security_group.Public.id}"
 }
 
+output "pub_sec_group" {
+  value = "${aws_security_group.PrivateDB.id}"
+}
+
+output "key_name" {
+  value = "${var.key_name}"
+}
