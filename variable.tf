@@ -7,3 +7,4 @@ variable "Name" {}
 variable "key_name" {}
 #variable "userdate" {}
 variable "region" {}
+variable "appname" {}
