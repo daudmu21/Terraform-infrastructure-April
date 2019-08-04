@@ -1,4 +1,4 @@
-module "${var.appname}" {
+module "wordpress" {
   source  = "terraform-aws-modules/autoscaling/aws"
   version = "3.0"
   
@@ -15,9 +15,9 @@ module "${var.appname}" {
   asg_name                  = "${var.appname}-asg"
   vpc_zone_identifier       = ["${aws_subnet.public.id}"]
   health_check_type         = "EC2"
-  min_size                  = 3
-  max_size                  = 128
-  desired_capacity          = 6
+  min_size                  = "${var.min_size_app}"
+  max_size                  = "${var.max_size_app}"
+  desired_capacity          = "${var.desired_app_capacity}"
   wait_for_capacity_timeout = 0
 
   tags_as_map = {

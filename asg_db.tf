@@ -14,9 +14,9 @@ module "mysql" {
   asg_name                  = "mysql-asg"
   vpc_zone_identifier       = ["${aws_subnet.PrivateDB.id}"]
   health_check_type         = "EC2"
-  min_size                  = 6
-  max_size                  = 128
-  desired_capacity          = 6
+  min_size                  = "${var.min_size_db}"
+  max_size                  = "${var.max_size_db}"
+  desired_capacity          = "${var.desired_db_capacity}"
   wait_for_capacity_timeout = 0
 
   tags_as_map = {
