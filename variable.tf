@@ -14,5 +14,5 @@ variable "desired_app_capacity" {}
 variable "min_size_db" {}
 variable "max_size_db" {}
 variable "desired_db_capacity" {}
-
+variable "appnamedb" {}
 
