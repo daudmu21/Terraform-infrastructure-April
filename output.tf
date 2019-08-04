@@ -13,7 +13,7 @@ output "pub_sec_group" {
   value = "${aws_security_group.Public.id}"
 }
 
-output "pub_sec_group" {
+output "priv_sec_group" {
   value = "${aws_security_group.PrivateDB.id}"
 }
 
