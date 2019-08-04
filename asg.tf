@@ -20,5 +20,10 @@ module "wordpress" {
   desired_capacity          = 4
   wait_for_capacity_timeout = 0
 
-  
+  tags_as_map = {
+    Name = "${var.Name}"
+    Env = "${var.Env}"
+    Created_by = "${var.Created_by}"
+    Dept = "${var.Dept}"
+  }
 }
