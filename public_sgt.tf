@@ -1,27 +1,27 @@
-resource "aws_security_group" "Public" {
-  name        = "Dev"
-  description = "Allow TLS inbound traffic"
+resource "aws_security_group" "public" {
+  name        = "public"
+  description = "Allow inbound traffic"
   vpc_id      = "${aws_vpc.dev.id}"
 
   ingress {
     from_port   = 443
     to_port     = 443
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"] 
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
     from_port   = 22
     to_port     = 22
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"] 
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
     from_port   = 80
     to_port     = 80
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"] 
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -31,30 +31,32 @@ resource "aws_security_group" "Public" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name = "${var.Name}.public"
-    Env = "${var.Env}"
-    Created_by = "${var.Created_by}"
-    Dept = "${var.Dept}"
-  }
 
-  resource "aws_security_group" "PrivateDB" {
-  name        = "PrivateDB"
-  description = "Allow TLS inbound traffic"
+  tags = {
+      Name = "${var.Name}.public"
+      Env = "${var.Env}"
+      Created_by = "${var.Created_by}"
+      Dept = "${var.Dept}"
+  }
+}
+
+
+resource "aws_security_group" "privateDB" {
+  name        = "privateDB"
+  description = "Allow MYSQL traffic"
   vpc_id      = "${aws_vpc.dev.id}"
 
   ingress {
     from_port   = 3306
     to_port     = 3306
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"] 
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
-
   ingress {
     from_port   = 22
     to_port     = 22
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"] 
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -65,10 +67,9 @@ resource "aws_security_group" "Public" {
   }
 
   tags = {
-    Name = "${var.Name}.privateDB"
-    Env = "${var.Env}"
-    Created_by = "${var.Created_by}"
-    Dept = "${var.Dept}"
+      Name = "${var.Name}.privateDB"
+      Env = "${var.Env}"
+      Created_by = "${var.Created_by}"
+      Dept = "${var.Dept}"
   }
-}
 }

@@ -12,7 +12,7 @@ module "mysql" {
 
   # Auto scaling group
   asg_name                  = "mysql-asg"
-  vpc_zone_identifier       = ["${aws_subnet.PrivateDB.id}"]
+  vpc_zone_identifier       = ["${aws_subnet.Private.id}"]
   health_check_type         = "EC2"
   min_size                  = 6
   max_size                  = 128
