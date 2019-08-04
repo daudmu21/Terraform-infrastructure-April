@@ -5,5 +5,5 @@ variable "Created_by" {}
 variable "Dept" {}
 variable "Name" {}
 variable "key_name" {}
-variable "userdate" {}
+#variable "userdate" {}
 variable "region" {}
